@@ -40,6 +40,6 @@ sudo /etc/init.d/mysql start -u root -p[]
 echo "----------MySQL Server Started----------"
 
 # First time setup for secure installation
-sudo yes | mysql_secure_installation
+sudo yes | mysql_secure_installation -u root -p 
 
 echo "----------MySQL Installation Success!----------"

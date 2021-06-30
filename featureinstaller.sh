@@ -35,7 +35,7 @@ sudo apt install mysql-server -y
 echo "----------MySQL Server Installed----------"
 
 # Starting the MySQL server
-sudo /etc/init.d/mysql start
+sudo /etc/init.d/mysql start -u root -p[]
 
 echo "----------MySQL Server Started----------"
 

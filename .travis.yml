@@ -1,5 +1,7 @@
-sudo: required
 language: bash
+
+sudo: required
+
 dist: focal
 
 # Run series of commands that will run before test runs

@@ -4,3 +4,4 @@ dist: focal
 script: 
   - chmod +x featureinstaller.sh
   - ./featureinstaller.sh
+  - echo "Execution Success!"

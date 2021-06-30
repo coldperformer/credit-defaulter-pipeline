@@ -1,4 +1,6 @@
 language: bash
 sudo: required
+dist: focal
 script: 
-  - chmod u+x bash featureinstaller.sh
+  - chmod +x featureinstaller.sh
+  - ./featureinstaller.sh

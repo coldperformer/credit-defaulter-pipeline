@@ -1,14 +1,29 @@
 #!/usr/bin/python3
 
+import os
 from helper import CreditDefaulterHelper
 
+checksavedir = 'saves/01 newraw' 
+numsavedir = 'saves/02 catnumdata/numeric'
+catsavedir = 'saves/02 catnumdata/categoric'
+featurexydir = 'saves/03 finaldata'
+savemodeldir = 'saves/04 models'
+
+# Create new directories if not exists
+paths = [checksavedir, numsavedir, catsavedir, featurexydir, savemodeldir]
+
+for path in paths:
+    if not os.path.exists(path=path):
+        os.makedirs(path)
+        print('New Path Created: ', path)
+    print('New Path Creation Not Required.')
 
 check_load_path = 'https://storage.googleapis.com/industryanalytics/LoanDefaultData.csv'
-check_save_path = 'saves/01 newraw'+'/newraw.csv'
-num_save_path = 'saves/02 catnumdata/numeric'+'/numericdata.csv'
-cat_save_path = 'saves/02 catnumdata/categoric'+'/categoricaldata.csv'
-feature_saveXy = 'saves/03 finaldata'+'/finaldata.csv'
-savemodelpath = 'saves/04 models'
+check_save_path = checksavedir + '/newraw.csv'
+num_save_path = numsavedir + '/numericdata.csv'
+cat_save_path = catsavedir + '/categoricaldata.csv'
+feature_saveXy = featurexydir + '/finaldata.csv'
+savemodelpath = savemodeldir
 
 obj = CreditDefaulterHelper(check_load_path, 
                             check_save_path,

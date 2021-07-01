@@ -1,10 +1,17 @@
+# Language Interpreter to use while executing tests
 language: bash
 
+# Enable super user level permissions
 sudo: required
 
+# Command to use Ubuntu 20.04 LTS
 dist: focal
 
+# Command to install dependencies
+install:
+  - pip install -r requirements.txt
+
+# Test Scripts
 script: 
-  - chmod +x tester.py
-  - ./tester.py
-  - echo "Execution Success!"
+  - python3 tester.py
+  - echo "Travis Testing Success!"

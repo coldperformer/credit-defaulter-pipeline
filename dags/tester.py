@@ -19,17 +19,24 @@ obj = CreditDefaulterHelper(check_load_path,
 
 # Unit testing
 assert obj.checkFileDropper(features=['cust_id', 'date_issued', 'date_final']) == 'Dropping Unncessary Features Success!'
+print('Task 1 Success!, Unit Test 1 Passed')
 assert obj.numericTransformer() == 'Numerical Transformations Success!'
+print('Task 2 Success!, Unit Test 2 Passed')
 assert obj.categoryTransformer(
     feed_dict={
             'LabelEncoder': ['year'], 
             'OneHotEncoder': ['own_type', 'income_type', 'app_type', 'interest_payments', 'grade', 'loan_duration'],
             'KFoldTargetEncoding': ['state', 'loan_purpose']
         }) == 'Categorical Transformation Success!'
+print('Task 3 Success!, Unit Test 3 Passed')
 
 assert obj.featuresMergeScaler() == 'Features Merging and Scaling Success!'
+print('Task 4 Success!, Unit Test 4 Passed')
 assert obj.modelDeveloper(algorithm='Logistic') == 'Model Development Success!'
+print('Task 5 Success!, Unit Test 5 Passed')
 assert obj.modelDeveloper(algorithm='RandomForest') == 'Model Development Success!'
+print('Task 6 Success!, Unit Test 6 Passed')
 assert obj.modelDeveloper(algorithm='XGBoost') == 'Model Development Success!'
+print('Task 7 Success!, Unit Test 7 Passed')
 
-print('Testing Success!')
+print('All Tests Passed!')

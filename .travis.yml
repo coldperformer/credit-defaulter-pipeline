@@ -9,14 +9,14 @@ dist: focal
   
 # Command to install dependencies before install phase
 before_install:
-  - sudo apt-get update
-  - sudo apt-get upgrade -y
-  - sudo apt install python3-pip
-  - sudo apt-get install libcairo2-dev
-  - sudo apt-get install libmysqlclient-dev
+  - sudo apt-get -qq update
+  - sudo apt-get -qq upgrade -y
+  - sudo apt install -qq python3-pip
+  - sudo apt-get install -qq libcairo2-dev
+  - sudo apt-get install -qq libmysqlclient-dev
   - sudo apt-get install -y language-selector-common
-  - sudo apt-get update
-  - sudo apt-get upgrade -y
+  - sudo apt-get -qq update
+  - sudo apt-get -qq upgrade -y
 
 # Command to install dependencies
 install:

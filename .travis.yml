@@ -9,8 +9,8 @@ dist: focal
   
 # Command to install dependencies before install phase
 before_install:
-  - apt-get update
-  - apt-get upgrade -y
+  - sudo apt-get update
+  - sudo apt-get upgrade -y
 
 # Command to install dependencies
 install:

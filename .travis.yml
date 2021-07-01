@@ -20,7 +20,7 @@ before_install:
 
 # Command to install dependencies
 install:
-  - pip3 -q install -r requirements.txt
+  - pip3 install -r requirements.txt -q
 
 # Test Scripts
 script: 

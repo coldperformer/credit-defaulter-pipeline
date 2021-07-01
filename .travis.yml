@@ -14,6 +14,7 @@ before_install:
   - sudo apt install python3-pip
   - sudo apt-get install libcairo2-dev
   - sudo apt-get install libmysqlclient-dev
+  - sudo apt-get install -y language-selector-common
   - sudo apt-get update
   - sudo apt-get upgrade -y
 

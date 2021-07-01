@@ -7,7 +7,7 @@ sudo apt-get update
 sudo apt-get upgrade -y
 
 # Install Python pip
-sudo apt install python3-pip==21.1.1
+sudo apt install python3-pip=21.1.1
 
 echo "----------PIP Installed----------"
 

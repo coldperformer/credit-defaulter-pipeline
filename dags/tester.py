@@ -16,7 +16,8 @@ for path in paths:
     if not os.path.exists(path=path):
         os.makedirs(path)
         print('New Path Created: ', path)
-    print('New Path Creation Not Required.')
+    else:
+        print('New Path Creation Not Required.')
 
 check_load_path = 'https://storage.googleapis.com/industryanalytics/LoanDefaultData.csv'
 check_save_path = checksavedir + '/newraw.csv'

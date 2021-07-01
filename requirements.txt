@@ -222,7 +222,6 @@ typing-extensions==3.7.4.3
 typing-inspect==0.6.0
 ubuntu-advantage-tools==27.0
 ufw==0.36
-unattended-upgrades==0.1
 unicodecsv==0.14.1
 uritemplate==3.0.1
 urllib3==1.25.8

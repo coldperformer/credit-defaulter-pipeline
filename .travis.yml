@@ -25,4 +25,3 @@ install:
 # Test Scripts
 script: 
   - python3 dags/tester.py
-  - echo "Travis Testing Success!"

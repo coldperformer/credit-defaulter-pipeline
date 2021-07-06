@@ -102,7 +102,7 @@ class CreditDefaulterHelper:
     
         if os.path.exists(path=self.check_save_path):
 
-            print('Raw File Found. Performing Numerical Transformations...')
+            print('Raw file found! Performing numerical transformations...')
             data = pd.read_csv(filepath_or_buffer=self.check_save_path, usecols=self.num_cols)
 
             # Replacing zeros with the middle value of the dataset
@@ -135,6 +135,8 @@ class CreditDefaulterHelper:
 
             data = pd.read_csv(filepath_or_buffer=self.check_save_path, usecols=self.cat_cols)
 
+            print('Raw file found! Performing categorical transformations...')
+
             ## Feature Encoding: Encoding categorical features
             for key, value in feed_dict.items():
                 if key == "LabelEncoder":
@@ -163,6 +165,8 @@ class CreditDefaulterHelper:
             ## Loading numerical and categorical featured data
             datacat = pd.read_csv(filepath_or_buffer=self.cat_save_path)
             datanum = pd.read_csv(filepath_or_buffer=self.num_save_path)
+
+            print('Data files found! Performing operations...')
     
             ## Features Merging: Concatenating numerical and categorical features at column level
             datacombined = pd.concat(objs=[datacat, datanum], axis=1, verify_integrity=True)
@@ -204,6 +208,8 @@ class CreditDefaulterHelper:
         if (os.path.exists(path=self.feature_saveXy)):
 
             data = pd.read_csv(filepath_or_buffer=self.feature_saveXy)
+
+            print('Data file found! Performing operations...')
 
             ## Loading input and target featured data
             X = data.drop(labels=['is_default'], axis=1)

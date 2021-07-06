@@ -25,7 +25,7 @@ for path in paths:
 
 obj = CreditDefaulterHelper(check_load_path=check_load_path, 
                             check_save_path=checksavedir + '/newraw.csv',
-                            num_save_path=num_save_path + '/numericdata.csv', 
+                            num_save_path=numsavedir + '/numericdata.csv', 
                             cat_save_path=catsavedir + '/categoricaldata.csv', 
                             feature_saveXy=featurexydir + '/finaldata.csv', 
                             savemodelpath=savemodeldir)

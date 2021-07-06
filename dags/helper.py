@@ -56,8 +56,6 @@ class KFoldTargetEncoder(BaseEstimator, TransformerMixin):
             X[col_mean_name].fillna(mean_of_target, inplace=True)
         if self.verbosity:
             encoded_feature = X[col_mean_name].values
-            print('Correlation between the new feature, {} and, {} is {}.'.format(
-                col_mean_name, self.targetName, np.corrcoef(X[self.targetName].values, encoded_feature)[0][1]))
         if self.discardOriginal_col:
             X = X.drop(self.colnames, axis=1)
         return X
@@ -180,12 +178,10 @@ class CreditDefaulterHelper:
             scaler = StandardScaler()
             scale_fit = scaler.fit_transform(X)
             X_scaled = pd.DataFrame(data=scale_fit, columns=X.columns)
-            print('----------Feature Scaling Success!----------')
 
             ## SMOTE: Performing minority oversampling
             sm = over_sampling.SMOTE(random_state=42, sampling_strategy='minority', n_jobs=-1)
             Xnew, y = sm.fit_resample(X_scaled, y)
-            print('----------Data SMOTEing Success!----------')
 
             ## Saving final input and target
             data_new = pd.DataFrame(data=Xnew, columns=X.columns)
@@ -215,7 +211,7 @@ class CreditDefaulterHelper:
 
             ## Model Development: Develops model based on the specified parameter
             if algorithm == 'Logistic':
-                clf = LogisticRegression(random_state=42, class_weight='balanced')
+                clf = LogisticRegression(random_state=42, class_weight='balanced', max_iter=1000)
                 clf.fit(X, y)
                 with open(self.savemodelpath+'/log.pckl', 'wb') as file:
                     pickle.dump(obj=clf, file=file)
@@ -227,7 +223,7 @@ class CreditDefaulterHelper:
                     pickle.dump(obj=clf, file=file)
 
             elif algorithm == "XGBoost":
-                clf = XGBClassifier(max_depth=7, n_jobs=-1, random_state=42)
+                clf = XGBClassifier(max_depth=7, n_jobs=-1, random_state=42, use_label_encoder=False, eval_metric='logloss')
                 clf.fit(X, y)
                 with open(self.savemodelpath+'/xgb.pckl', 'wb') as file:
                     pickle.dump(obj=clf, file=file)
